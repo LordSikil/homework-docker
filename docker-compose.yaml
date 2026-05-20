@@ -1,0 +1,12 @@
+services:
+  app:
+    image: lordsikil/express-app:latest
+    ports:
+      - "8080:8080"
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    interval: 30
+    command: --interval 30 --cleanup
